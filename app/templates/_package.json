@@ -1,0 +1,18 @@
+{
+	"name" : "Grunt",
+	"version" : "0.1.0",
+	"author" : "Nikolaj Sokolowski",
+	"private" : true,
+
+	"devDependencies" : {
+		"grunt" :                       "~0.4.0",
+		"grunt-contrib-cssmin":         "*",
+		"grunt-contrib-less":           "*",
+		"grunt-contrib-uglify":         "*",
+		"grunt-contrib-watch":          "*",
+		"grunt-cssc":                   "*",
+		"grunt-lessimportfile":         "*",
+		"grunt-lessvarfile":            "~0.2.0",
+		"matchdep":                     "*"
+	}
+}
