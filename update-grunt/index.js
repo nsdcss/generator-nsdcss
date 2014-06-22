@@ -37,15 +37,16 @@ var UpdateGruntGenerator = yeoman.generators.Base.extend({
   createGruntFile: function () {
 
     this.bowerDirectory = this.dest.readJSON('.bowerrc').directory;
-    var bowerFiles = this.expandFiles(this.bowerDirectory + "/**/bower.json");
-    for (var i = 0; i < bowerFiles.length; i++) {
-      var bowerConfig = this.dest.readJSON(bowerFiles[i]);
-      if (typeof bowerConfig.nsdcss != 'undefined') {
-        if (typeof bowerConfig.nsdcss.scope != 'undefined') {
-          if (bowerConfig.nsdcss.scope == "framework") {
+    var nsdcssFiles = this.expandFiles(this.bowerDirectory + "/**/nsdcss.json");
+    for (var i = 0; i < nsdcssFiles.length; i++) {
+      var nsdcssConfig = this.dest.readJSON(nsdcssFiles[i]);
+      console.log(nsdcssConfig);
+      if (nsdcssConfig) {
+        if (typeof nsdcssConfig.scope != 'undefined') {
+          if (nsdcssConfig.scope == "framework" || nsdcssConfig.scope == "shared") {
             this.frameworkfiles.push({
-                files: this.expandFiles(path.dirname(bowerFiles[i]) + "/**/*.less"),
-                order: bowerConfig.nsdcss.order || '999'
+                files: this.expandFiles(path.dirname(nsdcssFiles[i]) + "/**/*.less"),
+                order: nsdcssConfig.order || '999'
               });
           }
         }
