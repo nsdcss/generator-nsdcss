@@ -1,2 +1,2 @@
-yeoman
+Generator for the nsdcss LESS-Framework
 ======
